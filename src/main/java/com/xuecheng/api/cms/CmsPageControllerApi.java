@@ -25,14 +25,15 @@ public interface CmsPageControllerApi {
 
 
     @ApiOperation("新增页面")
+    @ApiImplicitParams(@ApiImplicitParam(name = "cmsPage", value = "页面数据模型", required = true, dataType = "CmsPage"))
     public CmsPageResult add(CmsPage cmsPage);
 
     @ApiOperation("根据id查询页面")
-    @ApiImplicitParams(@ApiImplicitParam())
+    @ApiImplicitParams(@ApiImplicitParam(name = "pageId", value = "页面id", required = true, dataType = "String"))
     public CmsPage findById(String pageId);
 
     @ApiOperation("修改页面")
-    @ApiImplicitParams({@ApiImplicitParam(name = "pageId", value = "页面id", required = true, dataType = "String"),@ApiImplicitParam(name = "cmsPage", value = "页面模型数据", required = true, paramType = "path", dataType = "CmsPage")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "pageId", value = "页面id", required = true, dataType = "String"), @ApiImplicitParam(name = "cmsPage", value = "页面模型数据", required = true, paramType = "path", dataType = "CmsPage")})
     public CmsPageResult findByUpdate(String pageId, CmsPage cmsPage);
 
     @ApiOperation("根据id删除页面")
