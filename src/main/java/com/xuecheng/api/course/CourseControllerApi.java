@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
  * 	b.orderby,
  * 	c.orderby
  */
-@Api(value = "课程管理接口",description = "课程管理接口，提供课程的增、删、改、查、操作")
+@Api(value = "课程管理接口",description = "课程管理接口 提供数据模型管理，查询接口")
 public interface CourseControllerApi {
 
     @ApiOperation(value = "查询课程计划")
