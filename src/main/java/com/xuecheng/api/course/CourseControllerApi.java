@@ -37,4 +37,10 @@ public interface CourseControllerApi {
 
     @ApiOperation(value="添加课程计划")
     public ResponseResult addTeachplan(Teachplan teachplan);
+
+    //修改课程计划
+    @ApiOperation(value="修改课程计划")
+    public ResponseResult updateTeachplan(Teachplan teachplan);
+    //删除课程计划
+
 }
