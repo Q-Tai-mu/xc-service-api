@@ -1,10 +1,16 @@
 package com.xuecheng.api.course;
 
+import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.Teachplan;
+import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
+import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author wuangjing
@@ -35,12 +41,16 @@ public interface CourseControllerApi {
     @ApiOperation(value = "查询课程计划")
     public TeachplanNode findTeachplanList(String courseId);
 
-    @ApiOperation(value="添加课程计划")
+    @ApiOperation(value = "添加课程计划")
     public ResponseResult addTeachplan(Teachplan teachplan);
 
     //修改课程计划
-    @ApiOperation(value="修改课程计划")
+    @ApiOperation(value = "修改课程计划")
     public ResponseResult updateTeachplan(Teachplan teachplan);
-    //删除课程计划
 
+    @ApiOperation(value = "添加课程基本信息")
+    public ResponseResult courseBaseAdd(CourseBase courseBase);
+
+    @ApiOperation(value = "查询课程基本信息")
+    public QueryResponseResult findCourseInfo(Integer page, Integer size, Map<String, Object> map);
 }
