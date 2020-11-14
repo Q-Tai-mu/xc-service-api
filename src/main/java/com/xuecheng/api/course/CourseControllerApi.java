@@ -67,12 +67,15 @@ public interface CourseControllerApi {
     public CoursePic findCoursePicImage(String courseId) throws RuntimeException;
 
     @ApiOperation(value = "保存课程图片")
-    public ResponseResult addCoursePicImage(String courseId,String pic);
+    public ResponseResult addCoursePicImage(String courseId, String pic);
+
+    @ApiOperation(value = "删除课程图片")
+    public ResponseResult deleteCoursePicImage(String courseId);
 
     @ApiOperation(value = "获取课程营销信息")
     public CourseMarket getCourseMarketById(String courseId);
 
 
     @ApiOperation(value = "需改课程营销信息")
-    public ResponseResult updateCourseMarket(String courseId,CourseMarket courseMarket);
+    public ResponseResult updateCourseMarket(String courseId, CourseMarket courseMarket);
 }
