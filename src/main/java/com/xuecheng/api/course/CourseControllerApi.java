@@ -1,6 +1,9 @@
 package com.xuecheng.api.course;
 
+import com.google.common.base.Equivalence;
 import com.xuecheng.framework.domain.course.CourseBase;
+import com.xuecheng.framework.domain.course.CourseMarket;
+import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
 import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
@@ -53,4 +56,23 @@ public interface CourseControllerApi {
 
     @ApiOperation(value = "查询课程基本信息")
     public QueryResponseResult findCourseInfo(Integer page, Integer size, Map<String, Object> map);
+
+    @ApiOperation(value = "获取课程基本信息")
+    public CourseBase getCourseBaseById(String courseId) throws RuntimeException;
+
+    @ApiOperation(value = "修改课程基本信息")
+    public ResponseResult updateCourseBase(String courseId, CourseBase courseBase) throws RuntimeException;
+
+    @ApiOperation(value = "查询课程图片")
+    public CoursePic findCoursePicImage(String courseId) throws RuntimeException;
+
+    @ApiOperation(value = "保存课程图片")
+    public ResponseResult addCoursePicImage(String courseId,String pic);
+
+    @ApiOperation(value = "获取课程营销信息")
+    public CourseMarket getCourseMarketById(String courseId);
+
+
+    @ApiOperation(value = "需改课程营销信息")
+    public ResponseResult updateCourseMarket(String courseId,CourseMarket courseMarket);
 }
