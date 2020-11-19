@@ -3,6 +3,7 @@ package com.xuecheng.api.cms;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.domain.cms.response.CmsPostPageResult;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.Api;
@@ -30,7 +31,7 @@ public interface CmsPageControllerApi {
     public CmsPageResult add(CmsPage cmsPage);
 
     @ApiOperation("根据id查询页面")
-    @ApiImplicitParams(@ApiImplicitParam(name = "pageId", value = "页面id", required = true, dataType = "String"))
+    @ApiImplicitParams(@ApiImplicitParam(name = "pageId", value = "页面id", required = false, dataType = "String"))
     public CmsPage findById(String pageId);
 
     @ApiOperation("修改页面")
@@ -44,5 +45,14 @@ public interface CmsPageControllerApi {
     @ApiOperation("发布页面")
     @ApiImplicitParams(@ApiImplicitParam(name = "pageId", value = "页面id", paramType = "path", required = true, dataType = "String"))
     public ResponseResult post(String pageId);
+
+    @ApiOperation(value = "保存页面")
+    @ApiImplicitParams(@ApiImplicitParam(name = "cmsPage", value = "页面数据模型", required = true, dataType = "CmsPage"))
+    public CmsPageResult save(CmsPage cmsPage);
+
+
+    @ApiOperation(value = "一键页面发布")
+    @ApiImplicitParams(@ApiImplicitParam(name = "cmsPage", value = "页面数据模型", required = true, dataType = "CmsPage"))
+    public CmsPostPageResult postPageQuick(CmsPage cmsPage);
 }
 
